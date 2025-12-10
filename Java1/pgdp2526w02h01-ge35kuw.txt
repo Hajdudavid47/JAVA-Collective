@@ -1,0 +1,110 @@
+Rechtecke
+In dieser Aufgabe lernst du, zwei Datenstrukturen als Klassen zu abstrahieren und ihre Attribute zu enkapsulieren.
+
+WICHTIG:
+Deine Abgabe wird mithilfe zweier Tests geprüft: Structural Tests (z.B. testAttributes[Vector2D]) prüfen, dass alle Klassen mit Attributen und Methoden wie gefordert existieren (auch Namen, Access Modifiers, Parameter, Return Types, etc. müssen stimmen), während Behavioural Tests die Funktionsweise prüfen. Artemis kann die Funktionsweise des Codes erst testen, wenn die Structural Tests alle bestehen. Davor kannst du die main-Methoden natürlich immer zum testen nutzen; diese sind für die Tests irrelevant, solange sie kompilieren.
+
+Vektoren
+Als aller Erstes möchten wir die Klasse Vector2D entwickeln. Diese soll uns das Arbeiten mit Vektoren vereinfachen. Die Verwendung einer solchen Klasse ist in vielerlei Hinsicht sinnvoll. Zum Beispiel wird dadurch ein Programm strukturiert und leichter nachvollziehbar. Auch die (komplexe) Implementierung von häufig genutzen Operationen kann elegant in den Methoden der Klasse versteckt werden, sodass andere Entwickler nicht jedes mal einen eigenen Algorithmus entwickeln müssen.
+
+ Objektattribute No results
+Erstelle zuerst die beiden privaten Attribute x und y, diese verwenden wir um die x- bzw. y-Koordinaten des Vektors zu speichern. Da wir uns nicht auf ganzzahlige Koordinaten beschränken möchten, sollen beide Attribute vom Typ double sein.
+ Konstruktor No results
+Um eine Instanz eines Vektors erstellen zu können muss ein entsprechender Konstruktor implementiert werden. Der Konstruktor erwartet die Attribute des Objekts (in der entsprechenden Reihenfolge: x, y) als Parameter.
+ Getter & Setter No results
+Erstelle nun für jedes der Attribute die passenden Getter und Setter.
+ add No results
+Desweiteren soll die Klasse die Vektoraddition unterstützen. Implementiere diese Funktionalität als Methode add, welche einen Vector2D als Parameter erwartet. Die Objektattribute des Vektors, bei dem die Methode aufgerufen wurde, werden entsprechend modifiziert. Es darf kein neuer Vector2D erstellt werden.
+ toString No results
+Zuletzt möchten wir dazu in der Lage sein, eine String-Repräsentation eines Vektors erstellen zu können. Dies wird in der Methode toString umgesetzt. Der String soll dabei wie folgt formatiert sein: "[<x-Wert>,⎵<y-Wert>]". Der Vektor mit x-Koordinate: 4.0 und y-Koordinate: 5.0 würde also folgenden String zurückgeben: "[4.0,⎵5.0]". Ersetze das Zeichen ⎵ in deinem Code durch ein Leerzeichen. Um zu testen ob deine Formatierung den Anforderungen entspricht kannst du die main-Methode in der Klasse Vector2D ausführen.
+Rechtecke
+Endlich kommen wir zum eigentlichen Ziel der Aufgabe: die Implementierung der Rectangle-Klasse. Natürlich haben wir Vector2D nicht umsonst entwickelt. Diese werden wir dazu benutzen um die Eckpunkte des Rechtecks zu speichern.
+
+ Objektattribute No results
+Im allgemeinen sind Rechtecke durch drei fixe Punkte eindeutig beschrieben. Unsere Implementierung wird sich jedoch auf Rechtecke beschränken, deren Kanten ausschließlich horizontal und vertikal verlaufen. Daher benötigen wir nur noch zwei Punkte topLeft und bottomRight. Für diese privaten Attribute nutzen wir selbstverständlich unsere eigene Datenstruktur Vector2D. In unserer Implementierung wächst 
+x
+x-Koordinate von links nach rechts und die 
+y
+y-Koordinate von unten nach oben. topLeft ist also die Ecke mit der größeren 
+y
+y-Koordinate und der kleineren 
+x
+x-Koordinate.
+ Konstruktor No results
+Auch für Rectangle erstellen wir einen Konstruktor. Dieser erwartet zwei Vector2D als Parameter: als erstes den oberen linken und als zweites den unteren rechten Punkt. Du musst dir also keine Gedanken über degenerierte Fälle oder fehlerhafte Eigaben machen. Die Benutzer (und Testfälle) werden die Datenstruktur immer sachgemäß verwenden und die vordefinierte Reihenfolge einhalten. D.h. sie werden als zweites Argument immer einen Punkt übergeben, welcher tatsächlich rechts und unterhalb des ersten Argumentes liegt.
+ toString No results
+Zur Visualisierung wird auch Rectangle eine toString-Methode implementieren. Der String soll dabei wie folgt formatiert sein: "Rectangle⎵spanned⎵by⎵points⎵<linker-oberer Vektor>⎵and⎵<rechter-unterer Vector>.".Ein Rechteck mit den Vektoren "[0.0,⎵1.0]" und "[2.0,⎵0.0]" würde also folgenden String zurück geben: "Rectangle⎵spanned⎵by⎵points⎵[0.0,⎵1.0] and [2.0,⎵0.0].". Achte dabei auch hier auf die Leerzeichen. Um zu Testen ob deine Formatierung den Anforderungen entspricht kannst du die main-Methode in der Klasse Rectangle ausführen.
+Jetzt können wir uns endlich den interessanteren Methoden widmen, die Rectangle bereitstellen soll.
+
+ calculateArea No results
+Zuerst wollen wir eine Methode (calculateArea) zur Bestimmung des Flächeninhaltes erstellen. Die Methode gibt den berechneten Flächeninhalt als double zurück. Dabei helfen dir folgende Tipps:
+Unsere Rechtecke haben ausschließlich horizontale bzw. vertikale Kanten (Breite und Höhe des Rechtecks)
+Die Wahl der Vektoren die das Rechteck repräsentieren (oben-links 
+t
+l
+⃗
+tl
+ , unten-rechts 
+b
+r
+⃗
+br
+ ) erlaubt es uns die Breite (
+Δ
+x
+Δx)/Höhe (
+Δ
+y
+Δy) des Rechtecks durch die Differenz der x-/y-Werte zu ermitteln: 
+Δ
+x
+=
+b
+r
+⃗
+_
+x
+−
+t
+l
+⃗
+_
+x
+Δx= 
+br
+ _x− 
+tl
+ _x und 
+Δ
+y
+=
+t
+l
+⃗
+_
+y
+−
+b
+r
+⃗
+_
+y
+Δy= 
+tl
+ _y− 
+br
+ _y
+Der Flächeninhalt lässt sich dann schnell aus dem Produkt der Breite und Höhe berechnen: 
+A
+=
+Δ
+x
+⋅
+Δ
+y
+A=Δx⋅Δy.
+ shiftBy No results
+Zu guter Letzt wollen wir auch noch dazu in der Lage sein, Rechtecke im Koordinatensystem zu verschieben. Dazu implementieren wir die Methode shiftBy, die das Rechteck um einen übergebenen Vector2D verschiebt.
+Betrachte dazu folgendes Beispiel:
+
+Hier hast du zu Beginn das Rechteck von den Punkten "[1.0, 2.0]" und "[3.0, 1.0]" gespannt (makiert mit dem Index old). Dieses soll um den Vektor shift ("[2.5, 1.5]") im Koordinatensystem verschoben werden. Wie du siehst handelt es sich dabei um simple Vektoraddition. Hinweis: Diese hast du bereits zuvor implementiert. Durch die Verschiebung ergibt sich die neue Position des Rechtecks (markiert mit dem Index new). WICHTIG: Erstelle keine neuen Vektoren bzw. kein neues Rechteck. Es ist wichtig, dass lediglich die bereits vorhandenen Daten modifiziert werden.
