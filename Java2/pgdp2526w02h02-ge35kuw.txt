@@ -1,0 +1,197 @@
+And this one is the second one with the task description: Mixed Pingu-Numbers
+In dieser Aufgabe implementieren wir eine Klasse zur Repräsentation von gemischten Brüchen. Ein gemischter Bruch besteht aus einer ganzen Zahl und einem echten Bruch (z. B. 
+3
+2
+3
+3 
+3
+2
+​
+ ​).
+
+Falls du eine Auffrischung brauchst, findest du hier eine Erklärung.
+
+Wichtig: In dieser Aufgabe werden nur Eingaben die echt größer als 0 (
+x
+>
+0
+x>0) sind getestet.
+
+Projektstruktur
+Im Template findest du die folgenden drei Klassen:
+
+Utils: Enthält eine hilfreiche statische Methode (reduce), um deine Pingu-Numbers zu kürzen.
+Main: Enthält die main-Methode mit einem Beispiel-Aufruf. Erweitere diese Klasse mit mehreren Besipielen, um die Funktionalität deiner Implementierung zu testen.
+MixedPinguNumber: Das ist die Klasse, in der du die folgenden Aufgaben implementieren wirst.
+Konstruktor
+ Konstruktor No results
+Implementiere den Konstruktor. Er soll die drei Attribute in der Reihenfolge numerator, denominator und wholePart entgegennehmen und die entsprechenden Objektattribute setzen.
+Konsolenausgaben
+Natürlich wollen wir unsere Pingu-Number auch auf der Konsole sehen. Implementiere hierfür zwei Methoden!
+
+ Double Ausgabe No results
+Implementiere die Methode printAsDouble(). Diese soll den Wert unserer Pingu-Number als double auf die Konsole ausgeben.
+Beispiel: 
+7
+1
+2
+7 
+2
+1
+​
+  soll als 
+7.5
+7.5 auf der Konsole ausgegeben werden
+ Schöne Ausgabe No results
+Implementiere die Methode prettyPrint(). Diese soll unsere Pingu-Number auf der Konsole ausgeben.
+Die Ausgabe soll dabei folgendermaßen formatiert sein: "wholePart⎵numerator/denominator"
+Normalisierung
+Um das Rechnen später leichter zu gestalten, wollen wir verschiedene Methoden implementieren, um unsere Pingu-Numbers zu normalisieren.
+
+ Ganzteil extrahieren No results
+Implementiere die Methode extractWholePart(). Diese soll unseren Bruch in einen echten Bruch umwandeln. Hierzu musst du den im Bruch steckenden ganzen Anteil extrahieren und zu wholePart addieren.
+Beispiel: 
+3
+7
+2
+3 
+2
+7
+​
+  soll zu 
+6
+1
+2
+6 
+2
+1
+​
+  werden
+ Ganzteil verrechnen No results
+Implementiere die Methode mergeWholePart(). Sie ist das Gegenteil zu extractWholePart() und soll den ganzzahligen Anteil (wholePart) komplett in den Bruch umwandeln (einen unechten Bruch erzeugen).
+Beispiel: 
+3
+7
+2
+3 
+2
+7
+​
+  soll zu 
+0
+13
+2
+=
+13
+2
+0 
+2
+13
+​
+ = 
+2
+13
+​
+  werden
+ Normalisierung No results
+Implementiere die Methode normalize(). Sie soll unsere Zahl zunächst durch extractWholePart() zu einem echten Bruch umwandeln und diesen dann vollständig kürzen (beachte die Klasse Utils).
+Beispiel: 
+4
+14
+6
+4 
+6
+14
+​
+  soll zu 
+6
+2
+6
+=
+6
+1
+3
+6 
+6
+2
+​
+ =6 
+3
+1
+​
+  werden
+Rechnen
+Nun da wir unsere Zahl ausgeben und normalisieren können, wollen wir natürlich auch damit rechnen. Wir implementieren dazu einige Methoden die verschiedene Rechenschritte ausführen.
+
+ Addieren No results
+Implementiere die Methode add(MixedPinguNumber other). Sie soll eine andere (other) Pingu-Number zu unserer Aktuellen addieren. Denk daran, das Ergebnis in den Attributen zu speichern und verändere die Attribute von other nicht! Unsere Zahl soll am Ende in normalisierter Form vorliegen.
+Beispiel: 
+2
+1
+2
++
+1
+3
+4
+=
+4
+1
+4
+2 
+2
+1
+​
+ +1 
+4
+3
+​
+ =4 
+4
+1
+​
+ 
+ Multiplizieren No results
+Implementiere die Methode multiply(MixedPinguNumber other). Sie soll eine andere (other) Pingu-Number mit unserer Aktuellen multiplizieren. Denk daran, das Ergebnis in den Attributen zu speichern und verändere die Attribute von other nicht! Unsere Zahl soll am Ende in normalisierter Form vorliegen.
+Beispiel: 
+1
+1
+2
+1 
+2
+1
+​
+  x 
+2
+1
+3
+=
+3
+1
+2
+2 
+3
+1
+​
+ =3 
+2
+1
+​
+ 
+ Kehrbruch No results
+Implementiere die Methode invert(). Sie soll den Kehrwert unserer Pingu-Number berechnen. Denk daran das Ergebnis in den Attributen zu speichern. Unsere Zahl soll am Ende in normalisierter Form vorliegen.
+Beispiel: 
+3
+1
+2
+3 
+2
+1
+​
+  wird zu 
+2
+7
+7
+2
+​
+ 
+Hinweis: Die Teilaufgaben werden unabhängig voneinander getestet.
