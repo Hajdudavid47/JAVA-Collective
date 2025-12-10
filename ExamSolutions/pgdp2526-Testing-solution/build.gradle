@@ -1,0 +1,37 @@
+apply plugin: 'java'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+version = '1.0.0'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    testImplementation 'de.tum.in.ase:artemis-java-test-sandbox:1.15.0'
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
+
+    // testImplementation(':Testing')
+    // testImplementation(':Testing-Solution')
+
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDirs = []
+        }
+    }
+}

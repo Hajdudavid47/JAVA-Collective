@@ -1,0 +1,21 @@
+Du musst alle Deine Tests mit der Annotation @Test markieren, andere Annotationen wie @ParameterizedTest werden nicht bewertet!
+
+Du darfst eine oder mehrere Methoden mit der Annotation @BeforeEach markieren. Diese Methoden werden dann vor der Ausführung jedes Testfalls ausgeführt. Andere Annotationen wie @BeforeAll o.ä. werden bei dieser Aufgabe nicht ausgeführt!
+
+Testing
+In dieser Aufgabe schreibst du Tests für die Klassen Utils und Bag.
+
+Dir werden die leere Klasse UpaTest und die Beispielimplementierungen der Klassen Utils, Bag zur Verfügung gestellt. Die vorgegebenen Implementierungen von Utils und Bag stellen eine mögliche Implementierung dar, die Fehler enthalten kann. Deine Tests sollten alle möglichen Fehler finden und nicht spezifisch auf die vorgegebenen Implementierungen ausgelegt sein.
+
+Du musst alle Tests in der Klasse UpaTest implementieren. Diese sollen die folgenden Methoden von Utils und Bag möglichst umfangreich testen.
+
+Wir zählen bei Deinen Tests, wie viele potentielle Fehler sie in der Implementierung entdecken können. Bei jeder Teilaufgabe ist angegeben, wie viele Fehler entdeckt werden müssen, um die volle Punktzahl zu erreichen. Es könnte allerdings von Vorteil sein, mehr Tests zu schreiben, da mehrere deiner Tests den gleichen Fehler finden könnten.
+
+ GCD Tests 0 of 1 tests passing
+Die Methode gcd(int a, int b) in der Klasse Utils soll den größten gemeinsamen Teiler von a und b zurückgeben. Du kannst davon ausgehen, dass a und b nicht negativ sind und mindestens eine von a oder b echt positiv ist. Anzahl erwarteter Cases: 2
+ Array Sorting Tests 0 of 2 tests passing
+Die Methode sort(int[] arr) in der Klasse Utils soll ein neues Array zurückgeben, dass dieselben Einträge wie arr enthält, aber in aufsteigender Reihenfolge sortiert ist. arr soll dabei unverändert bleiben. Du kannst davon ausgehen, dass arr nicht null ist. Anzahl erwarteter Cases: 4
+ Date Verification Tests 0 of 3 tests passing
+Die Methode isValidDate(int day, int month, int year) in der Klasse Utils erhält ein Datum und soll zurückgeben, ob day, month und year ein valides Datum nach der Zeitenwende (d. h. mit positiver Jahreszahl) darstellen. Anzahl erwarteter Cases: 6
+ Bag Tests 0 of 4 tests passing
+Die Klasse Bag stellt eine einfache Tasche dar, die bis zu drei Integer-Werte beinhalten kann. Die Methode add(int item) soll ein neues Item zur Tasche hinzufügen solange in der Tasche noch Platz ist, remove(int item) soll genau ein Vorkommen von item aus der Tasche entfernen, und contains(int item), soll zurückgeben, ob sich ein bestimmtes Item sich in der Tasche befindet. add und remove sollen zurückgeben, ob die Operation erfolgreich war, also ob item hinzugefügt bzw. entfernt werden konnte. Anzahl erwarteter Cases: 8
